@@ -1,4 +1,4 @@
-window.loadFooterComponent = function (targetId) {
+export function loadFooterComponent(targetId) {
   const targetElement = document.getElementById(targetId);
 
   if (!targetElement) {
@@ -66,4 +66,4 @@ window.loadFooterComponent = function (targetId) {
     `;
 
   targetElement.innerHTML = footerHTML;
-};
+}
