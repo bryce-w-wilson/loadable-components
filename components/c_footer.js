@@ -1,4 +1,4 @@
-window.loadFooterComponent = function (targetId, props) {
+window.loadFooterComponent = function (targetId) {
   const targetElement = document.getElementById(targetId);
 
   if (!targetElement) {
@@ -6,15 +6,12 @@ window.loadFooterComponent = function (targetId, props) {
     return;
   }
 
-  // Helper function to get data attribute by camelCase prop name
   function getDataAttr(prop) {
-    // Convert camelCase to kebab-case for data-attribute
-    // e.g., servicesTitle -> services-title
     const attrName = "data-" + prop.replace(/([A-Z])/g, "-$1").toLowerCase();
-    return targetElement.getAttribute(attrName) || "";
+    const val = targetElement.getAttribute(attrName);
+    return val ? val.trim() : "";
   }
 
-  // Read all needed props from data attributes
   const props = {
     servicesTitle: getDataAttr("servicesTitle"),
     service1: getDataAttr("service1"),
